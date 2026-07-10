@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;">
+  <title>Memeforge</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='78' font-size='80' text-anchor='middle'%3E%F0%9F%90%B8%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">🐸</span>
+        <h1>Memeforge</h1>
+        <span class="brand-sub">Pay once. Own your memes forever.</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn ghost" id="btn-open-project" title="Open a .meme project">Open Project</button>
+        <button class="btn ghost" id="btn-save-project" title="Save this .meme project">Save Project</button>
+        <span class="divider"></span>
+        <button class="btn ghost" id="btn-batch" title="Batch mode: caption many images from a CSV">Batch Mode</button>
+        <span class="divider"></span>
+        <button class="btn ghost" id="btn-copy" title="Copy the current meme to clipboard">Copy Image</button>
+        <button class="btn ghost" id="btn-export-jpg" title="Export as JPG">Export JPG</button>
+        <button class="btn primary" id="btn-export-png" title="Export as PNG">Export PNG</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Templates</h2>
+          <p class="hint">Placeholder canvases — drop your own image below for a real meme.</p>
+          <div class="template-grid" id="template-grid"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Add text</h2>
+          <div class="stack">
+            <button class="btn block" id="btn-add-top">+ Top text band</button>
+            <button class="btn block" id="btn-add-bottom">+ Bottom text band</button>
+            <button class="btn block" id="btn-add-free">+ Free text box</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="canvas-area">
+        <div class="canvas-shell" id="drop-zone">
+          <canvas id="canvas" width="800" height="600"></canvas>
+          <div class="drop-hint" id="drop-hint">
+            <div class="drop-hint-mark">🐸</div>
+            <div class="drop-hint-title">Drop an image here</div>
+            <div class="drop-hint-sub">or <button class="link" id="btn-open-image">open a file</button> — or pick a placeholder template</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="layers-panel">
+        <h2>Layers</h2>
+        <div class="layer-list" id="layer-list"></div>
+        <p class="hint" id="layer-empty-hint">No text layers yet. Add one from the left panel.</p>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Batch mode modal -->
+  <div class="modal-backdrop hidden" id="batch-modal">
+    <div class="modal modal-wide">
+      <h2>Batch mode</h2>
+      <p class="hint">CSV columns: <code>image, top, bottom</code>. Image paths may be absolute, or relative to the CSV file's folder.</p>
+      <div class="batch-toolbar">
+        <button class="btn ghost" id="btn-batch-open-csv">Open CSV…</button>
+        <span id="batch-csv-path" class="batch-path"></span>
+        <span class="spacer"></span>
+        <button class="btn ghost" id="btn-batch-output">Choose Output Folder…</button>
+        <span id="batch-output-path" class="batch-path"></span>
+      </div>
+      <div class="batch-table-wrap">
+        <table class="batch-table" id="batch-table">
+          <thead>
+            <tr><th>#</th><th>Image</th><th>Top</th><th>Bottom</th><th>Status</th></tr>
+          </thead>
+          <tbody id="batch-tbody"></tbody>
+        </table>
+      </div>
+      <div class="modal-actions">
+        <span class="spacer"></span>
+        <button class="btn ghost" id="btn-batch-close">Close</button>
+        <button class="btn primary" id="btn-batch-run">Run Batch</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="../src/layout.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
