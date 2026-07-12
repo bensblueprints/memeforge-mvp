@@ -12,7 +12,7 @@ Kapwing Pro charges **$16/month, forever**, largely to remove a watermark and un
 
 Don't want to touch a terminal? Grab the packaged Windows installer (and support development):
 
-**→ [Get Memeforge on Whop](https://whop.com/onetime-suite)** — pay once, own it forever.
+**→ [Get Memeforge on Whop](https://whop.com/benjisaiempire/memeforge-app)** — pay once, own it forever.
 
 ## Features
 
