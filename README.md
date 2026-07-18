@@ -1,5 +1,9 @@
 # 🐸 Memeforge
 
+## Demo
+
+VIDEO-PLACEHOLDER
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **The desktop meme generator you buy once and own forever.** Canvas-based text editor with the classic Impact meme look, drag/resize text boxes, auto-fit-to-width sizing, batch CSV captioning for whole folders of images, and project files you can reopen and re-edit — 100% local, zero subscription, zero cloud, zero telemetry.
