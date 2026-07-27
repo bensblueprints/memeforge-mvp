@@ -1,7 +1,7 @@
 {
   "name": "memeforge",
   "productName": "Memeforge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Own-it-forever desktop meme generator — canvas editor, batch CSV captioning, no subscription.",
   "main": "main.js",
   "author": "Ben (bensblueprints)",
