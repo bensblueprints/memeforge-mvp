@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const store = require('./src/store');
 const csv = require('./src/csv');
+const { gateLicense, registerLicenseIpc } = require('./license-gate');
 
 let win = null;
 
@@ -186,7 +187,9 @@ ipcMain.handle('batch:saveImage', (_e, { folder, filename, dataURL }) => {
   }
 });
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  if (!(await gateLicense())) return; // quit already requested
+  registerLicenseIpc();
   if (process.platform === 'win32') app.setAppUserModelId('com.bensblueprints.memeforge');
   createWindow();
   app.on('activate', () => {

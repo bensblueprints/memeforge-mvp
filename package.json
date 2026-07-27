@@ -25,6 +25,9 @@
     "files": [
       "main.js",
       "preload.js",
+      "whop-license.js",
+      "license-gate.js",
+      "whop-license.config.json",
       "src/**/*",
       "renderer/**/*",
       "templates/**/*",
